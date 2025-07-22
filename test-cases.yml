@@ -1,0 +1,118 @@
+---
+- summary: |
+    Проверка регистрации нового пользователя на сайте Codebattle
+  requirement: |
+    Пользователь должен иметь возможность зарегистрироваться через форму регистрации, заполнив поля nickname, email, password, password confirmation.
+  prerequisites: |
+    Открыта страница регистрации: https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    Пользователь не авторизован.
+  test-data: |
+    nickname: test_user
+    email: test_user@example.com
+    password: SecureP@ssw0rd!
+    password_confirmation: SecureP@ssw0rd!
+  steps:
+    - Открыть страницу регистрации.
+    - Ввести тестовые данные в соответствующие поля.
+    - Нажать кнопку "Submit".
+    - Проверить, произошло ли успешное перенаправление и пользователь авторизован.
+  expected-result: |
+    Регистрация через форму происходит успешно, пользователь перенаправлен на главную страницу, отображается никнейм.
+
+- summary: |
+    Проверка регистрации нового пользователя на сайте Codebattle через Github
+  requirement: |
+    Пользователь должен иметь возможность зарегистрироваться через Github, если он уже авторизован на сайте Github.
+  prerequisites: |
+    Открыта страница регистрации: https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    Пользователь не авторизован. Пользователь должен быть авторизован на Github.
+  test-data: |
+    nickname: test_user
+    email: test_user@example.com
+    password: SecureP@ssw0rd!
+    password_confirmation: SecureP@ssw0rd!
+  steps:
+    - Открыть страницу регистрации.
+    - Нажать кнопку "Sign in with GitHub"
+    - Пройти процесс авторизации.
+    - Проверить успешную регистрацию через GitHub.
+  expected-result: |
+    При регистрации через GitHub пользователь попадает в систему с созданным аккаунтом.
+
+- summary: |
+    Проверка регистрации нового пользователя на сайте Codebattle через Discord
+  requirement: |
+    Пользователь должен иметь возможность зарегистрироваться через Github, если он уже авторизован на сайте Discord.
+  prerequisites: |
+    Открыта страница регистрации: https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    Пользователь не авторизован. Пользователь должен быть авторизован на Discord.
+  test-data: |
+    nickname: test_user
+    email: test_user@example.com
+    password: SecureP@ssw0rd!
+    password_confirmation: SecureP@ssw0rd!
+  steps:
+    - Открыть страницу регистрации.
+    - Нажать кнопку "Sign in with Discord"
+    - Пройти процесс авторизации.
+    - Проверить успешную регистрацию через Discord.
+  expected-result: |
+    При регистрации через Discord пользователь попадает в систему с созданным аккаунтом.
+
+- summary: |
+    Проверка успешного входа в личный кабинет при вводе корректных данных
+  requirement: |
+    Пользователь должен иметь возможность авторизоваться, указав корректные email и пароль.
+  prerequisites: |
+    Зарегистрированный пользователь с действующими учётными данными. Открыта главная страница сайта https://codebattle.hexlet.io/
+  test-data: |
+    email: user@example.com  
+    password: SecureP@ss123
+  steps:
+    - Нажать кнопку "Sign in".
+    - Ввести email и пароль.
+    - Нажать кнопку "Submit".
+  expected-result: |
+    Осуществляется вход в систему. Пользователь перенаправлен на главную страницу или страницу профиля. В интерфейсе отображается никнейм пользователя.
+
+  - summary: |
+    Проверка входа в личный кабинет с неверным паролем
+  requirement: |
+    При неверном пароле система должна отобразить сообщение об ошибке.
+  prerequisites: |
+    Зарегистрированный пользователь с действующими учётными данными. Открыта главная страница сайта https://codebattle.hexlet.io/
+  test-data: |
+    email: user@example.com  
+    password: неверныйПароль123
+  steps:
+    - Нажать кнопку "Sign in".
+    - Ввести email и неверный пароль.
+    - Нажать кнопку "Sign in".
+  expected-result: |
+    Появляется сообщение об ошибке ("Invalid email or password"). Вход в систему не осуществляется.
+
+- summary: |
+    Проверка входа через GitHub
+  requirement: |
+    Пользователь должен иметь возможность авторизоваться через сторонний сервис GitHub.
+  prerequisites: |
+    Открыта страница входа. У пользователя есть GitHub-аккаунт. Пользователь зарегистрирован через GitHub.
+  test-data: |
+    GitHub аккаунт: привязан к Codebattle
+  steps:
+    - Нажать кнопку "Sign in with GitHub".
+  expected-result: |
+    Пользователь авторизован через GitHub и перенаправлен на главную страницу.
+
+- summary: |
+    Проверка входа через Discord
+  requirement: |
+    Возможность авторизации через Discord должна быть доступна и корректно работать.
+  prerequisites: |
+    Открыта страница входа. У пользователя есть Discord-аккаунт.
+  test-data: |
+    Discord аккаунт: привязан к Codebattle
+  steps:
+    - Нажать кнопку "Sign in with Discord".
+  expected-result: |
+    Пользователь авторизован через Discord и перенаправлен на главную страницу.
