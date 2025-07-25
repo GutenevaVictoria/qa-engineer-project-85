@@ -304,7 +304,7 @@
     Пользователь должен иметь возможность создать турнир через интерфейс платформы.
   prerequisites: |
     Пользователь авторизован. Открыт личный кабинет на сайте https://codebattle.hexlet.io/
-  test-data:
+  test-data: |
     name - "Hexlet Battle Royale"
     type - individual
     level_range - "elementary"
