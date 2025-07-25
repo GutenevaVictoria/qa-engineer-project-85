@@ -26,7 +26,7 @@
       - iPhone SE — 375×667 px
       - iPhone 12 Pro — 390×844 px
       - iPad Air — 820×1180 px
-  steps:
+  steps: |
     - Открыть DevTools → включить режим эмуляции устройств (Toggle device toolbar)
     - Выбрать iPhone SE, установить разрешение 375×667 px
       - Перейти на главную страницу сайта
@@ -60,10 +60,10 @@
     - Перейти в профиль: убедиться, что настройки отображаются корректно
     - Перейти в раздел "Tournaments" — проверить список турниров и кнопки действия
     - Открыть интерфейс игры (создать игру или принять приглашение) — проверить:
-        - работу редактора кода
-        - отображение панели задач
-        - корректность таймера
-        - видимость чата
+    - работу редактора кода
+    - отображение панели задач
+    - корректность таймера
+    - видимость чата
     - Открыть историю игр и проверить отображение реплеев
     - Проверить кликабельность всех интерактивных элементов: кнопки, меню, переключатели
     - Проверить наличие ошибок в DevTools → Console
@@ -82,10 +82,10 @@
     Открыта страница регистрации: https://codebattle.hexlet.io/users/new?locale=en&next=%2F
     Пользователь не авторизован.
   test-data: |
-    nickname: test_user
-    email: test_user@example.com
-    password: SecureP@ssw0rd!
-    password_confirmation: SecureP@ssw0rd!
+    nickname: "test_user"
+    email: "test_user@example.com"
+    password: "SecureP@ssw0rd!"
+    password_confirmation: "SecureP@ssw0rd!"
   steps:
     - Открыть страницу регистрации.
     - Ввести тестовые данные в соответствующие поля.
@@ -102,10 +102,7 @@
     Открыта страница регистрации: https://codebattle.hexlet.io/users/new?locale=en&next=%2F
     Пользователь не авторизован. Пользователь должен быть авторизован на Github.
   test-data: |
-    nickname: test_user
-    email: test_user@example.com
-    password: SecureP@ssw0rd!
-    password_confirmation: SecureP@ssw0rd!
+    Тестовые данные отсутствуют
   steps:
     - Открыть страницу регистрации.
     - Нажать кнопку "Sign in with GitHub"
@@ -122,10 +119,7 @@
     Открыта страница регистрации: https://codebattle.hexlet.io/users/new?locale=en&next=%2F
     Пользователь не авторизован. Пользователь должен быть авторизован на Discord.
   test-data: |
-    nickname: test_user
-    email: test_user@example.com
-    password: SecureP@ssw0rd!
-    password_confirmation: SecureP@ssw0rd!
+    Тестовые данные отсутствуют
   steps:
     - Открыть страницу регистрации.
     - Нажать кнопку "Sign in with Discord"
@@ -134,20 +128,20 @@
   expected-result: |
     При регистрации через Discord пользователь попадает в систему с созданным аккаунтом.
 
-- summary: >
+- summary: |
     Проверка успешного выхода из личного кабинета
-  requirement: >
+  requirement: |
     Пользователь должен иметь возможность завершить сеанс работы, выйдя из личного кабинета.
-  prerequisites: >
+  prerequisites: |
     Пользователь авторизован в системе. Открыта страница личного кабинета на сайте https://codebattle.hexlet.io/
-  test-data:
-    email: user@example.com
-    password: SecureP@ss123
+  test-data: |
+    email: "user@example.com"
+    password: "SecureP@ss123"
   steps:
     - Убедиться, что пользователь авторизован
     - Нажать на кнопку с никнеймом или аватаром пользователя в верхней части экрана
     - В выпадающем меню выбрать пункт "Sign out" или "Выйти"
-  expected-result: >
+  expected-result: |
     Пользователь выходит из системы. Происходит перенаправление на главную страницу.
     Элементы личного кабинета (никнейм, настройки) более не отображаются в интерфейсе.
 
@@ -159,7 +153,7 @@
   prerequisites: |
     Зарегистрированный пользователь с действующими учётными данными. Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
-    email: user@example.com  
+    email: "user@example.com"  
     password: неверныйПароль123
   steps:
     - Нажать кнопку "Sign in".
